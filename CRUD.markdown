@@ -122,7 +122,79 @@ values
 ```
 select  concat(author_fname,' ', author_lname) as author_fullName  from bookshop.book;
 ```
-# concat with
+## concat with
 ```
 select concat_ws('-', author_fname, author_lname) full_name from bookshop.book;
 ```
+## Substring or Substr
+
+```
+select substring("Hello World', start(int), length(int)) from table
+````
+```
+select concat(substr(title, 1, 10), '...') as title from bookshop.book;
+```
+
+## Replace
+Replace parts of strings
+
+```
+select replace('Hello world', 'Hell', 'Mell')
+
+--output--
+Mello world
+```
+## Reverse
+
+Reverse the provided string
+```
+select reverse('hello world');
+```
+
+## Char_length
+
+Number of characters 
+
+## lenght
+
+Number of bytes
+
+## Upper and Lower
+
+Will upper character or lower characters base on function
+
+```
+select upper('hello world')
+select ucase('hello world')
+
+select lower('hello world')
+select lcase('hello world')
+```
+
+## Left
+
+left most characters from string 
+
+```
+select ("hello', 3)
+```
+
+## Repeat
+
+Repeat string 
+
+```
+select ('Hello', 3)
+```
+
+## Trim 
+
+```
+select trim('  hello   world');
+
+select trim(both '.' from '....this is a test...')
+```
+---
+
+# Refining Selections
+
