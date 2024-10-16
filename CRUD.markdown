@@ -198,3 +198,28 @@ select trim(both '.' from '....this is a test...')
 
 # Refining Selections
 
+## Like Operation 
+
+- % &rarr; Wildcards
+
+- `Da%` &rarr; All the characters that *starts* with `Da`
+
+- `%ve` &rarr; All the characters that *ends* with `ve`
+
+- `%ve%` &rarr; All the characters that *have* `ve`
+- `'% \% %; &rarr; If the character contains `%` sign
+
+### Like vs Ilike
+
+`LIKE`
+
+- Case-sensitive: It matches patterns exactly as specified, including the case of the letters.
+
+`ILIKE`
+
+- Case-insensitive: It matches patterns regardless of the case of the letters.
+
+## Data Analysis Operations
+
+- `count(*)` &rarr; Count number of rows in the table
+- `count(fname)` &rarr; All the *not-null* fields will be counted
