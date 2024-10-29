@@ -223,3 +223,27 @@ select trim(both '.' from '....this is a test...')
 
 - `count(*)` &rarr; Count number of rows in the table
 - `count(fname)` &rarr; All the *not-null* fields will be counted
+
+
+## Group By
+Group by summarizes or aggregates identical data into single rows
+
+## Min and Max
+
+`Min` helps find minimum value and `max` helps find maximum value
+
+***Caution : Aggregation
+
+# Data Types
+
+## Char
+
+Allow to store text. Char if fixed length. Every string store will be of that size
+
+`Char(3)` &rarr; is fixed and it will store only three characters long string. Smaller characters are filled with gapped to fill the gap 
+
+## Varchar 
+
+Varchar only cares about it's maximum length and does not care about the size
+
+![alt text](image-1.png)
