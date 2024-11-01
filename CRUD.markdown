@@ -247,3 +247,71 @@ Allow to store text. Char if fixed length. Every string store will be of that si
 Varchar only cares about it's maximum length and does not care about the size
 
 ![alt text](image-1.png)
+
+## Numerica Number Types
+
+![alt text](image-2.png)
+
+## Decimal 
+
+ Decimal (5,2) &rarr; Max allowed would be 999.99
+
+- Up to 5 digits of which 2 can could come after the Decimal
+- Takes more space compared to float
+
+## Float
+
+Will will store data precision upto 7 digits whereas decimal store upto 15 digits
+
+
+
+# Dates & Times
+
+### Dates
+
+Values with a `Date` but no `Time`
+
+`YYYY-MM-DD` &rarr; Date Format
+
+### Time 
+
+Values with `Times` but no `Dates`
+
+`HH:MM:SS` &rarr; Time Format
+
+
+### Datetime 
+
+Values with a `Date and `Time`
+
+`YYYY-MM-DD HH:MM:SS` &rarr; Datetime Format
+
+
+### Current Date and Time 
+
+### CURTIME
+
+Current time 
+
+### CURDATE
+
+Current Date
+
+
+### NOW 
+
+Current timestamp or now 
+
+
+## Useful function using Date and Time
+
+- Day
+- Dayofweek
+- Quarter
+- Month : Gives Numerical month
+- Year
+- Monthname : Gives month names
+- Hour 
+- Minutes
+- Seconds
+- Formatdate(column, `format type`)
