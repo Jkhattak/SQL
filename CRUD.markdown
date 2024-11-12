@@ -1,22 +1,16 @@
 # CRUD
-- C = Create
-- R = Read
-- U = Update
-- D = Delete
+- **C = Create**: Adds new records or data entries to a table.
+- **R = Read**: Retrieves existing data from a table.
+- **U = Update**: Modifies existing records in a table.
+- **D = Delete**: Removes records from a table.
+
 ---
+
 ## Read
-Reading from a table in SQL uses the ***Select*** funcation
+Reading data from a table in SQL uses the **SELECT** statement.
 
-```
-select * from cat.cats;
-```
-- This will *select* everything from cats table
-
-We can also select specific columns as well
-
-```
-select name, age from cat.cats;
-```
+```sql
+SELECa
 
 ## Where
 - It allows user to narrow the data. 
@@ -130,7 +124,8 @@ select concat_ws('-', author_fname, author_lname) full_name from bookshop.book;
 
 ```
 select substring("Hello World', start(int), length(int)) from table
-````
+```
+
 ```
 select concat(substr(title, 1, 10), '...') as title from bookshop.book;
 ```
@@ -147,6 +142,7 @@ Mello world
 ## Reverse
 
 Reverse the provided string
+
 ```
 select reverse('hello world');
 ```
@@ -191,7 +187,7 @@ select ('Hello', 3)
 
 ```
 select trim('  hello   world');
-
+```
 select trim(both '.' from '....this is a test...')
 ```
 ---
@@ -315,3 +311,127 @@ Current timestamp or now
 - Minutes
 - Seconds
 - Formatdate(column, `format type`)
+
+## Date Math
+
+### DATEADD
+  - Adds or subtracts a specific interval to a date.
+
+```
+-- Adds 10 days to the current date
+SELECT DATEADD(day, 10, GETDATE());
+```
+
+### DATEDIFF
+ - Calculates the difference between two dates.
+```
+-- Calculates the number of days between two dates
+SELECT DATEDIFF(day, '2024-01-01', '2024-12-31');
+```
+
+### DATEPART
+ - Extracts a part of a date (like year, month, day).
+```
+-- Extracts the month part from a date
+SELECT DATEPART(month, GETDATE());
+```
+
+### YEAR, MONTH, DAY
+- These functions directly extract year, month, or day from a date.
+
+```
+-- Gets the year from a date
+SELECT YEAR(GETDATE());
+
+-- Gets the month from a date
+SELECT MONTH(GETDATE());
+
+-- Gets the day from a date
+SELECT DAY(GETDATE());
+```
+
+### EOMONTH
+ - Returns the last day of the month containing a specified date.
+
+```
+-- Gets the last day of the current month
+SELECT EOMONTH(GETDATE());
+```
+
+### GETDATE
+- Returns the current date and time.
+
+```
+SELECT GETDATE();
+```
+
+### SYSDATETIME
+- Returns the current date and time with more precision than GETDATE. 
+
+```
+SELECT SYSDATETIME();
+```
+
+### FORMAT
+- Formats a date as a string in a specified format.
+
+```
+-- Formats the current date as 'YYYY-MM-DD'
+SELECT FORMAT(GETDATE(), 'yyyy-MM-dd');
+```
+
+### DATEFROMPARTS
+- Creates a date from year, month, and day values.
+
+```
+-- Creates a date of January 1, 2024
+SELECT DATEFROMPARTS(2024, 1, 1);
+```
+
+### DATE_TRUNC
+- Truncates a date to the specified part (like month, year).
+
+```
+-- Truncates the date to the start of the month
+SELECT DATE_TRUNC('month', '2024-11-12');
+```
+
+## Comparison and Logical Operators 
+
+# SQL Comparison and Logical Operators
+
+## Comparison Operators
+Comparison operators are used to compare values in SQL. They evaluate to either TRUE, FALSE, or UNKNOWN.
+
+| Operator | Description                     | Example                           |
+|----------|---------------------------------|-----------------------------------|
+| `=`      | Equal to                        | `SELECT * FROM table WHERE age = 25;` |
+| `<>` or `!=` | Not equal to                | `SELECT * FROM table WHERE age <> 25;` |
+| `>`      | Greater than                    | `SELECT * FROM table WHERE age > 18;`  |
+| `<`      | Less than                       | `SELECT * FROM table WHERE age < 18;`  |
+| `>=`     | Greater than or equal to        | `SELECT * FROM table WHERE age >= 18;` |
+| `<=`     | Less than or equal to           | `SELECT * FROM table WHERE age <= 18;` |
+| `BETWEEN`| Within a range (inclusive)      | `SELECT * FROM table WHERE age BETWEEN 18 AND 30;` |
+| `NOT BETWEEN` | Not within a range        | `SELECT * FROM table WHERE age NOT BETWEEN 18 AND 30;` |
+| `LIKE`   | Matches a specified pattern     | `SELECT * FROM table WHERE name LIKE 'A%';` |
+| `NOT LIKE` | Does not match a pattern      | `SELECT * FROM table WHERE name NOT LIKE 'A%';` |
+| `IN`     | Matches any of the specified values | `SELECT * FROM table WHERE age IN (18, 21, 25);` |
+| `NOT IN` | Does not match any of the specified values | `SELECT * FROM table WHERE age NOT IN (18, 21, 25);` |
+| `IS NULL` | Checks if value is NULL        | `SELECT * FROM table WHERE column IS NULL;` |
+| `IS NOT NULL` | Checks if value is NOT NULL | `SELECT * FROM table WHERE column IS NOT NULL;` |
+
+## Logical Operators
+Logical operators are used to combine multiple conditions in SQL.
+
+| Operator | Description                     | Example                           |
+|----------|---------------------------------|-----------------------------------|
+| `AND`    | Returns TRUE if all conditions are TRUE | `SELECT * FROM table WHERE age > 18 AND gender = 'M';` |
+| `OR`     | Returns TRUE if any condition is TRUE  | `SELECT * FROM table WHERE age < 18 OR gender = 'F';` |
+| `NOT`    | Returns TRUE if the condition is FALSE | `SELECT * FROM table WHERE NOT age > 18;` |
+
+### Using Logical Operators Together
+Logical operators can be combined to form more complex queries. Use parentheses to control the order of evaluation.
+
+```sql
+SELECT * FROM table
+WHERE (age > 18 AND gender = 'M') OR (age < 18 AND gender = 'F');
